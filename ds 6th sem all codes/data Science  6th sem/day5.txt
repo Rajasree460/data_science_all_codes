@@ -1,0 +1,24 @@
+for (in in seq(1,30,by=1))
+setwd("F:/data Science  6th sem")
+data=iris
+View(data)
+data= data[,1:4]
+View(data)
+dim(data)
+cls=kmeans(data,3,algorithm = "MacQueen")
+View(cls)
+cls$cluster
+cls[["cluster"]]
+table(cls$cluster)
+cls=kmeans(data,3,iter.max=1000,nstart=5,algorithm = "Hartigan-Wong")
+table(cls$cluster)
+cls$centers
+cls[["withinss"]]
+cls$totss
+cls$tot.withinss
+cls$withinss
+cls2=kmeans(data,3,iter.max=1000,nstart=2,algorithm = "Lloyd")
+View(cls2)
+cls2$withinss
+cls2$totss
+savehistory("day5.txt")
